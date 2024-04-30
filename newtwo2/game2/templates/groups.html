@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Site</title>
+</head>
+<body>
+<div class="background">
+<div class="container0">
+    <div class="title">
+        <h1>Личный кабинет преподавателя 😇</h1>
+        <p><b>На данном сайте преподавателю можно посмотреть новости, списки групп и их учащихся</b></p>
+    </div>
+</div>
+
+<div class="container">
+<div class="square">
+<h1>Список групп:</h1>
+<div class="text">
+{% for group in groups %}
+<h2><a href="/students/{{ group.group }}/">{{ group.group }}</a></h2>
+ {% endfor %}
+    </div>
+         <div class="button"><button><a class='aaa' href="http://127.0.0.1:8000/lesson_form/">Оценить учеников ↪</a></button></div>
+</div>
+</div>
+    <div class="container1">
+        <div class="news-card">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmVwMGduYXAwYmoxMG5xYmUweHNienhkd281bXdqOGU0MXdwdXBoYSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/tHufwMDTUi20E/giphy.gif" alt="News Image 1" class="news-image">
+            <div class="category">#ПОСЛЕДНИЕ НОВОСТИ</div>
+            <div class="news-text"><b>Пророссийское подполье на Украине, старт "Ангары" и успехи пропаганды</b></div>
+            <div class="author">By <b>Vlad</b> 3 days ago</div>
+        </div>
+        <div class="news-card">
+            <img src="https://media.giphy.com/media/l44Qqgx74mPC0VXoc/giphy.gif?cid=790b7611vep0gnap0bj10nqbe0xsbzxdwo5mwj8e41wpupha&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="News Image 2" class="news-image">
+            <div class="category">#ПОСЛЕДНИЕ НОВОСТИ</div>
+            <div class="news-text"><b>Обществознание в школе будут изучать только в 9-м классе раз в неделю</b></div>
+            <div class="author">By <b>Gans</b> 2 days ago</div>
+        </div>
+        <div class="news-card">
+            <img src="https://media.giphy.com/media/28oBzkvhBJDzxr4dOd/giphy.gif?cid=790b7611vep0gnap0bj10nqbe0xsbzxdwo5mwj8e41wpupha&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="News Image 3" class="news-image">
+            <div class="category">#ПОСЛЕДНИЕ НОВОСТИ</div>
+            <div class="news-text"><b>В Подмосковье прошел досрочный ЕГЭ по обществознанию и истории</b></div>
+            <div class="author">By <b>Timur</b> 8 days ago</div>
+        </div>
+        <div class="news-card">
+            <img src="https://media.giphy.com/media/CvoEiFB1XeiBrpY3tx/giphy.gif?cid=ecf05e47buyq4sm5cw4iyh3xq7idgclndf1fzqh3ayjs9m57&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="News Image 4" class="news-image">
+            <div class="category">#ПОСЛЕДНИЕ НОВОСТИ</div>
+            <div class="news-text"><b>Собянин рассказал о внедрении ИИ в образовательный процесс</b></div>
+            <div class="author">By <b>Andrey</b> 6 days ago</div>
+        </div>
+        </div>
+    </div>
+</body>
+
+<style>
+    body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+.square {
+background-image: linear-gradient( 111.4deg,  rgba(238,113,113,1) 1%, rgba(246,215,148,1) 58% );
+  width: 300px;
+  height: 350px;
+  border: 3px solid black;
+  border-radius: 20px;
+  text-align: center;
+  background-color: white;
+}
+
+.container {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ margin-top: 25px;
+}
+
+.background {
+background-image: url(https://s0.rbk.ru/v6_top_pics/media/img/2/42/756633181601422.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f4f4f4;
+}
+
+.container1 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.news-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+.news-image {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.category {
+    margin-top: 10px;
+    color: blue;
+    font-weight: 600;
+    font-size: 0.7em;
+    align-self: flex-start;
+}
+
+.news-text {
+    margin-top: 10px;
+    font-size: 1em;
+    color: #333;
+    text-align: left;
+}
+
+.author {
+    margin-top: auto;
+    font-size: 0.8em;
+    color: #666;
+    margin-top: 10px;
+    align-self: flex-start;
+}
+
+ .container0 {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+    h1 {
+     display: flex;
+ align-items: center;
+ justify-content: center;
+    }
+p {
+    font-weight: 600;
+        font-size: 1.3em;
+    color: white;
+
+.button {
+        flex: start;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 10px;
+
+ button {
+        background-color: blue;
+        display: inline-block;
+        border-radius: 20px;
+        font-size: 1.6em;
+    }
+    .aaa {
+        color: white;
+        text-decoration: none;
+    }
+</style>
+</html>
