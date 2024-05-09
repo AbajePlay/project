@@ -5,14 +5,15 @@
     <title>Site</title>
 </head>
 <body>
-<div class="background">
-<div class="container0">
-    <div class="title">
-        <h1>Личный кабинет преподавателя 😇</h1>
-        <p><b>На данном сайте преподавателю можно посмотреть новости, списки групп и их учащихся</b></p>
+{% if request.user.is_authenticated %}
+    <div class="user-info">
+        <p>Здравствуйте, {{ request.user.username }}</p>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Выйти</button>
+        </form>
     </div>
-</div>
-
+{% endif %}
 <div class="container">
 <div class="square">
 <h1>Список групп:</h1>
@@ -50,16 +51,38 @@
             <div class="author">By <b>Andrey</b> 6 days ago</div>
         </div>
         </div>
-    </div>
 </body>
 
 <style>
-    body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
+        .user-info {
+        text-align: center;
+        margin-top: 20px;
+    }
 
+    .user-info p {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .user-info form {
+        display: inline-block;
+    }
+
+    .user-info button {
+        padding: 8px 16px;
+        background-color: #ff5733;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .user-info button:hover {
+        background-color: #ff8656;
+    }
 a {
   text-decoration: none;
   color: blue;
@@ -82,22 +105,15 @@ background-image: linear-gradient( 111.4deg,  rgba(238,113,113,1) 1%, rgba(246,2
  margin-top: 25px;
 }
 
-.background {
-background-image: url(https://s0.rbk.ru/v6_top_pics/media/img/2/42/756633181601422.jpg);
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-}
 
 body {
 font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     background: #f4f4f4;
+    background-image: url("https://cameralabs.org/media/cameralabs/images/Tanya/_II_October/14.10/92beautiful-mount-rainier-national-park.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .container1 {
